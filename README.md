@@ -34,33 +34,34 @@ Use Chris npm package to create boiler plate api
 3. Create heroku database (or use existing) DONE
 4. Create .env file with database credentials
    -gitignore the .env file DONE
-5. Edit pool for connecting with our database
+5. Edit pool for connecting with our database (done)
    -type out the pool (inc SSL authorisation)
-   - edit the - Test it connects
-     -export the pool.query
-6. Edit script for creating a table
-7. Create a script for populating the table
-   -create a populate_table.js with approprite SQL DONE
-   -add a script to package.json DONE
+   - edit the - Test it connects (done)
+     -export the pool.query (done)
+6. Edit script for creating a table (done)
+7. Create several scripts for table
+   - for populating the table (done)
+   - for droping
+   - for resetting table
 
 ---
 
-- Must use a REST API server with routes to manage requests and serve responses:
+_Setup Models and Routes folders and files_
 
-8. Set up foods.js file where our routers will go:
-   -create a foods.js file inside the routes folder
-   -import express into the file DONE
-   -grab router from express.Router() DONE
-9. Set up individual routers inside the foods.js:
-   -define a router.get function for gdisplaying the whole table to the user. It will: - import query, express - selects all rows from the foods table (USING sql) - sends the results as a .json
-   -one for post requests
-   -one for put requests
-   -one for delete requests
-10. put something in app.js that routes requests to the food.js file in the routes folder:
-    -export the router from foods.js
-    -import it into app.js inside app.use
+- go through app.js and ensure we understand what is inside the file
+- setup port in .env file and add to app.js
 
-- Must use the models pattern to allow easy interaction with the database
+- configure models folder
 
-11. Modularise the routers/requests.
-12. Testing - Jest/ Supertest
+  - setup and export async functions that will query the database
+  - define a getTable function that selects all rows from the resources (USING sql) - sends the results as a .json
+
+- configure routes folder
+
+  - setup resources.js with post and get functions inside
+  - import getTable and addToTable functions from models folder
+  - makes sure routes are RESTful and include v1 in route
+  - create router.get function for displaying the whole table to the frontend.
+  - create router.post
+
+  _Testing - Jest/ Supertest_
