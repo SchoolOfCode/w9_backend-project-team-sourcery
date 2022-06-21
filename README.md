@@ -41,27 +41,32 @@ Use Chris npm package to create boiler plate api
 6. Edit script for creating a table (done)
 7. Create several scripts for table
    - for populating the table (done)
-   - for droping
-   - for resetting table
+   - for droping (done)
+   - for resetting table (done)
 
 ---
 
 _Setup Models and Routes folders and files_
 
-- go through app.js and ensure we understand what is inside the file
-- setup port in .env file and add to app.js
+- go through app.js and ensure we understand what is inside the file (done)
+- setup port in .env file and add to app.js (done)
 
-- configure models folder
+- configure models folder (done)
 
-  - setup and export async functions that will query the database
-  - define a getTable function that selects all rows from the resources (USING sql) - sends the results as a .json
+  - setup and export async functions that will query the database (done)
+  - define a getTable function that selects all rows from the resources (USING sql) - sends the results as a .json (done)
 
 - configure routes folder
 
-  - setup resources.js with post and get functions inside
-  - import getTable and addToTable functions from models folder
-  - makes sure routes are RESTful and include v1 in route
-  - create router.get function for displaying the whole table to the frontend.
-  - create router.post
+  - setup resources.js with post and get functions inside (done)
+  - import getTable and addToTable functions from models folder (done)
+  - makes sure routes are RESTful and include v1 in route (done)
+  - create router.get function for displaying the whole table to the frontend. (done)
+  - create router.post (done)
+
+- Formatting data packages for front end
+
+  - send response object ({success: true, payload: result}) (done)
+  - Test on Postman (done)
 
   _Testing - Jest/ Supertest_

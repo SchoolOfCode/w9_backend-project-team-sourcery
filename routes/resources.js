@@ -3,16 +3,16 @@ const router = express.Router();
 import { getAllResources, addToResources } from "../models/resources.js";
 
 /* GETs all  resources. */
-router.get("/v1/", async function (req, res, next) {
+router.get("/", async function (req, res) {
   const result = await getAllResources();
-  res.json(result);
+  res.json({ success: true, payload: result });
 });
 
 /* Adds a row to resources table */
-router.post("/v1/", async function (req, res) {
+router.post("/", async function (req, res) {
   const resource = req.body;
-  addToResources(resource);
-  console.log(res);
+  const result = await addToResources(resource);
+  res.end("post complete / pool connection ended");
 });
 
 export default router;
