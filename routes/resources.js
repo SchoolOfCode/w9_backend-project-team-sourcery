@@ -12,7 +12,7 @@ router.get("/", async function (req, res) {
 router.post("/", async function (req, res) {
   const resource = req.body;
   const result = await addToResources(resource);
-  res.end("post complete / pool connection ended");
+  res.json({ success: true });
 });
 
 export default router;

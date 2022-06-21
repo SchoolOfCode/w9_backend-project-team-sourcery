@@ -54,19 +54,32 @@ _Setup Models and Routes folders and files_
 - configure models folder (done)
 
   - setup and export async functions that will query the database (done)
-  - define a getTable function that selects all rows from the resources (USING sql) - sends the results as a .json (done)
+  - define a getTable function that selects all rows from the resources (USING sql) - sends the results as a .json
 
 - configure routes folder
 
-  - setup resources.js with post and get functions inside (done)
-  - import getTable and addToTable functions from models folder (done)
-  - makes sure routes are RESTful and include v1 in route (done)
-  - create router.get function for displaying the whole table to the frontend. (done)
-  - create router.post (done)
-
-- Formatting data packages for front end
-
-  - send response object ({success: true, payload: result}) (done)
-  - Test on Postman (done)
+  - setup resources.js with post and get functions inside
+  - import getTable and addToTable functions from models folder
+  - makes sure routes are RESTful and include v1 in route
+  - create router.get function for displaying the whole table to the frontend.
+  - create router.post
 
   _Testing - Jest/ Supertest_
+
+  Test the get request
+
+  - import jest globals
+  - import supertest
+  - test that the get request returns the correct body and returns the correct status code.
+
+  Test the post request
+
+  - will do this by testing whether
+
+Issues
+
+- In order to end the get req
+
+  - send response object ({success: true, payload: result}) (done)
+  - Test on Postman (done - send response object ({success: true, payload: result}) (done)
+  - Test on Postman (done

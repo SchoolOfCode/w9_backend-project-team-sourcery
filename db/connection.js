@@ -5,6 +5,4 @@ const pool = new pg.Pool({
   ssl: { rejectUnauthorized: false },
 });
 
-export default function query(text, params, callback) {
-  return pool.query(text, params, callback);
-}
+export default pool;

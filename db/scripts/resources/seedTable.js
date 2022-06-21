@@ -1,4 +1,4 @@
-import query from "../../connection.js";
+import pool from "../../connection.js";
 
 
 // populates resources table with the given data
@@ -11,7 +11,7 @@ async function populateTable() {
     },
   ];
   for (let i = 0; i < test.length; i++) {
-    const response = await query(
+    const response = await pool.query(
       `INSERT INTO resources (name, url, description) VALUES ($1, $2, $3) RETURNING *;`,
       [test[i].name, test[i].url, test[i].description]
     );
