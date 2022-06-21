@@ -63,3 +63,4 @@ Use Chris npm package to create boiler plate api
 - Must use the models pattern to allow easy interaction with the database
 
 11. Modularise the routers/requests.
+12. Testing - Jest/ Supertest
