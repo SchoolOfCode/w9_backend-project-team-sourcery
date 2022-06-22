@@ -5,7 +5,7 @@ import { getAllResources, addToResources } from "../models/resources.js";
 /* GETs all  resources. */
 router.get("/", async function (req, res) {
   const result = await getAllResources();
-  res.json({ success: true, payload: result });
+  res.json(result);
 });
 
 /* Adds a row to resources table */

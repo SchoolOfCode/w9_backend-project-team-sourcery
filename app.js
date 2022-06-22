@@ -1,7 +1,7 @@
 import express from "express";
 
 import logger from "morgan";
-
+import cors from "cors";
 import resourcesRouter from "./routes/resources.js";
 
 const app = express();
@@ -10,7 +10,7 @@ app.use(logger("dev"));
 app.use(express.json());
 
 // setups resources router
-app.use("/v1/resources", resourcesRouter);
+app.use("/v1/resources", cors(), resourcesRouter);
 
 app.use(function (req, res, next) {
   res
