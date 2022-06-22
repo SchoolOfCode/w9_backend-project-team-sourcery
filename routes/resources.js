@@ -11,6 +11,7 @@ router.get("/", async function (req, res) {
 /* Adds a row to resources table */
 router.post("/", async function (req, res) {
   const resource = req.body;
+  console.log(resource);
   const result = await addToResources(resource);
   res.json({ success: true });
 });
