@@ -8,8 +8,8 @@ export async function getAllResources() {
 
 export async function addToResources(obj) {
   const result = await pool.query(
-    `INSERT INTO resources (name, url, description) VALUES ($1, $2, $3) RETURNING *;`,
-    [obj.name, obj.url, obj.description]
+    `INSERT INTO resources (name, url, description, likes) VALUES ($1, $2, $3, $4) RETURNING *;`,
+    [obj.name, obj.url, obj.description, obj.likes]
   );
   return result.rows[0];
 }
