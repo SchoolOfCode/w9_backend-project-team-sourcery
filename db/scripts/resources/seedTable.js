@@ -4,22 +4,19 @@ import pool from "../../connection.js";
 async function populateTable() {
   const test = [
     {
-      name: "blake",
-      url: "www.google.com",
-      description: "this is google, have a blast looking around",
+      name: "Blake Lawrence",
+      url: "http://www.postman.com",
+      description: "this is postman, great for sorting out routes",
       likes: 4,
-    },
-    {
-      name: "afam",
-      url: "https://beta.reactjs.org/learn/thinking-in-react",
-      description: " Guide to thinking in react from the updated React Docs",
-      likes: 4,
+      week: 1
     },
   ];
   for (let i = 0; i < test.length; i++) {
     const response = await pool.query(
-      `INSERT INTO resources (name, url, description, likes) VALUES ($1, $2, $3, $4) RETURNING *;`,
-      [test[i].name, test[i].url, test[i].description, test[i].likes]
+
+      `INSERT INTO resources (name, url, description, likes, week) VALUES ($1, $2, $3, $4, $5) RETURNING *;`,
+      [test[i].name, test[i].url, test[i].description, test[i].likes, test[i].week
+      
     );
     console.log(response.rows);
   }

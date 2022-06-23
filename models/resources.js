@@ -1,17 +1,30 @@
+import { response } from "express";
 import pool from "../db/connection.js";
 
+//Gets all resources
 export async function getAllResources() {
   const result = await pool.query(`SELECT * FROM resources;`);
 
   return result;
 }
 
+//Add to resources table
 export async function addToResources(obj) {
   const result = await pool.query(
-    `INSERT INTO resources (name, url, description, likes) VALUES ($1, $2, $3, $4) RETURNING *;`,
-    [obj.name, obj.url, obj.description, obj.likes]
+
+    `INSERT INTO resources (name, url, description, likes, week) VALUES ($1, $2, $3, $4, $5) RETURNING *;`,
+    [obj.name, obj.url, obj.description, obj.likes, obj.week]
+
   );
   return result.rows[0];
+}
+
+
+//Delete a resource from table
+
+export async function deleteResource(id) {
+  const result = await pool.query(`DELETE FROM resources WHERE id = $1;`, [id]);
+  return result;
 }
 
 export async function patchResources(obj) {
@@ -25,3 +38,4 @@ export async function patchResources(obj) {
 //     (err, res) => {
 //       console.log(err, res);
 //       pool.end();
+
