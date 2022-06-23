@@ -1,6 +1,10 @@
 import express from "express";
 const router = express.Router();
-import { getAllResources, addToResources } from "../models/resources.js";
+import {
+  getAllResources,
+  addToResources,
+  patchResources,
+} from "../models/resources.js";
 
 /* GETs all  resources. */
 router.get("/", async function (req, res) {
@@ -17,11 +21,19 @@ router.post("/", async function (req, res) {
   res.json({ success: true });
 });
 
+
 // Deletes a resource from table
 router.delete("/:id", async function (req, res) {
   let resourceId = req.params.id;
   let resp = await deleteResource(resourceId);
   res.send("resource deleted");
+
+router.patch("/", async function (req, res) {
+  const resource = req.body;
+  console.log(resource, "resource updated");
+  await patchResources(resource);
+  res.json({ success: true });
+
 });
 
 export default router;
