@@ -11,14 +11,12 @@ export async function getAllResources() {
 //Add to resources table
 export async function addToResources(obj) {
   const result = await pool.query(
-
     `INSERT INTO resources (name, url, description, likes, week) VALUES ($1, $2, $3, $4, $5) RETURNING *;`,
     [obj.name, obj.url, obj.description, obj.likes, obj.week]
-
   );
-  return result.rows[0];
+  console.log(result.rows);
+  return result.rows;
 }
-
 
 //Delete a resource from table
 
@@ -38,4 +36,3 @@ export async function patchResources(obj) {
 //     (err, res) => {
 //       console.log(err, res);
 //       pool.end();
-

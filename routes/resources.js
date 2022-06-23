@@ -17,8 +17,8 @@ router.get("/", async function (req, res) {
 router.post("/", async function (req, res) {
   const resource = req.body;
   console.log(resource, "resource posted");
-  const result = await addToResources(resource);
-  res.json({ success: true });
+  const data = await addToResources(resource);
+  res.json({ success: true, payload: data });
 });
 
 // Deletes a resource from table
@@ -31,8 +31,8 @@ router.delete("/:id", async function (req, res) {
 router.patch("/", async function (req, res) {
   const resource = req.body;
   console.log(resource, "resource updated");
-  await patchResources(resource);
-  res.json({ success: true });
+  const data = await patchResources(resource);
+  res.json({ success: true, payload: data });
 });
 
 export default router;
