@@ -1,6 +1,10 @@
 import express from "express";
 const router = express.Router();
-import { getAllResources, addToResources } from "../models/resources.js";
+import {
+  getAllResources,
+  addToResources,
+  patchResources,
+} from "../models/resources.js";
 
 /* GETs all  resources. */
 router.get("/", async function (req, res) {
@@ -14,6 +18,13 @@ router.post("/", async function (req, res) {
   const resource = req.body;
   console.log(resource, "resource posted");
   const result = await addToResources(resource);
+  res.json({ success: true });
+});
+
+router.patch("/", async function (req, res) {
+  const resource = req.body;
+  console.log(resource, "resource updated");
+  await patchResources(resource);
   res.json({ success: true });
 });
 

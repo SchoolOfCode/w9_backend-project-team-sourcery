@@ -13,3 +13,15 @@ export async function addToResources(obj) {
   );
   return result.rows[0];
 }
+
+export async function patchResources(obj) {
+  await pool.query(`UPDATE resources SET likes = $1 WHERE id = $2`, [
+    obj.likes,
+    obj.id,
+  ]);
+}
+
+// ,
+//     (err, res) => {
+//       console.log(err, res);
+//       pool.end();
