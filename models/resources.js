@@ -1,4 +1,3 @@
-import { response } from "express";
 import pool from "../db/connection.js";
 
 //Gets all resources
@@ -14,6 +13,7 @@ export async function addToResources(obj) {
     `INSERT INTO resources (name, url, description, likes, week) VALUES ($1, $2, $3, $4, $5) RETURNING *;`,
     [obj.name, obj.url, obj.description, obj.likes, obj.week]
   );
+
   console.log(result.rows);
   return result.rows;
 }

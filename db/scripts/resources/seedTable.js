@@ -22,6 +22,7 @@ async function populateTable() {
         test[i].week,
       ]
     );
+    pool.end();
     console.log(response.rows);
   }
 }
