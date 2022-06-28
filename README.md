@@ -9,7 +9,6 @@ Users can also view resources previously posted by themself or other users, and 
 
 There are also links across the navigation bar which lead to well known commonly used resources.
 
-
 ## Contents
 
  - [Run Locally](#run-locally)
@@ -36,8 +35,6 @@ Start the server
 ```bash
   npm run dev
 ```
-
-
 ## Environment Variables
 
 Create a .env file at the root of the newly created directory, which will be used to store sensitive and environment specific configuration options (pay attention to the connection pool variable names used, or change to suit)
@@ -49,6 +46,7 @@ Postgres was the  database management system used and Heroku was the cloud platf
 ## Libraries
 - Express
 - Supertest
+
 ## Authors
 
 - Owen Ahmed
