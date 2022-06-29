@@ -5,30 +5,28 @@ import request from "supertest";
 import app from "./app.js";
 
 // GET ALL USERS ROUTE
-test("tests get all status code 200", async function () {
-  const response = await request(app).get("/v1/resources");
-  expect(response.status).toEqual(200);
+describe("GET ALL RESOURCES", function () {
+  test("Get all resources status code 200", async function () {
+    const response = await request(app).get("/v1/resources");
+    expect(response.status).toEqual(200);
+  });
 });
 
-// test("tests get all status code 400", async function () {
-//   const response = await request(app).get("/v1/resources");
-//   expect(response.status).toEqual(400);
-// });
+describe("GET ALL RESOURCES", function () {
+  test("Get all resources body structure", async function () {
+    const response = await request(app).get("/v1/resources");
 
-// TEST BODY STRUCTURE
-test("tests get all body structure", async function () {
-  const response = await request(app).get("/v1/resources");
-  expect(response.body.rows).toEqual(
-    expect.arrayContaining([
-      expect.objectContaining({
-        id: expect.any(Number),
-        name: expect.any(String),
-        url: expect.any(String),
-        description: expect.any(String),
-        likes: expect.any(Number),
-        week: expect.any(Number),
-      }),
-    ])
-  );
+    expect(response.body.rows).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: expect.any(Number),
+          name: expect.any(String),
+          url: expect.any(String),
+          description: expect.any(String),
+          likes: expect.any(Number),
+          week: expect.any(Number),
+        }),
+      ])
+    );
+  });
 });
-

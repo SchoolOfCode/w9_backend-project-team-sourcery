@@ -20,14 +20,6 @@ router.post("/", async function (req, res) {
   res.json({ success: true, payload: data });
 });
 
-//Not currently being used
-// Deletes a resource from table
-// router.delete("/:id", async function (req, res) {
-//   let resourceId = req.params.id;
-//   let resp = await deleteResource(resourceId);
-//   res.send("resource deleted");
-// });
-
 // Updates the links
 router.patch("/", async function (req, res) {
   const resource = req.body;
