@@ -23,10 +23,9 @@ Click the link to see the [Project Guidelines](https://github.com/SchoolOfCode/p
 
 ---
 
-Plan
+<h1>Plan</h1>
 
-PLAN:
-Use Chris npm package to create boiler plate api
+START: npm package to create boiler plate api
 
 1. Install dependencies (npm i) done
    Must use a database (hosted on heroku or elephantSQL) for persistent storage | Must use environment variables to store database credentials - do not hard code those credentials!
@@ -72,9 +71,9 @@ _Setup Models and Routes folders and files_
   - import supertest
   - test that the get request returns the correct body and returns the correct status code.
 
-  Test the post request
+  <br>Test the post request
 
-  - will do this by testing whether
+  Test the patch request
 
 Issues
 

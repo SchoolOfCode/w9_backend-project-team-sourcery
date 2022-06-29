@@ -25,6 +25,7 @@ export async function deleteResource(id) {
   return result;
 }
 
+//Update a resource in the table
 export async function patchResources(obj) {
   await pool.query(`UPDATE resources SET likes = $1 WHERE id = $2`, [
     obj.likes,

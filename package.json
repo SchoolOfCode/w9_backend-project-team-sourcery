@@ -8,7 +8,7 @@
     "db:create_resources": "node -r dotenv/config ./db/scripts/resources/createTable.js",
     "db:seed_resources": "node -r dotenv/config ./db/scripts/resources/seedTable.js",
     "db:drop_resources": "node -r dotenv/config ./db/scripts/resources/dropTable.js",
-    "db:reset_resources": "npm run db:drop_resources && npm run db:create_resources && npm run db:seed_resources",
+    "q": "npm run db:drop_resources && npm run db:create_resources && npm run db:seed_resources",
     "dev": "nodemon -r dotenv/config ./bin/www.js",
     "test": "node --experimental-vm-modules -r dotenv/config node_modules/jest/bin/jest.js"
   },

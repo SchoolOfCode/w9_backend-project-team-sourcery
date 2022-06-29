@@ -1,11 +1,8 @@
 import express from "express";
-
 import logger from "morgan";
-
 import resourcesRouter from "./routes/resources.js";
 
 const app = express();
-
 app.use(logger("dev"));
 app.use(express.json());
 
@@ -22,10 +19,6 @@ app.use((req, res, next) => {
 });
 
 // setups resources router
-app.use(
-  "/v1/resources",
-
-  resourcesRouter
-);
+app.use("/v1/resources",resourcesRouter);
 
 export default app;
