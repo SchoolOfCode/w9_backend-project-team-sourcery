@@ -20,7 +20,7 @@ router.post("/", async function (req, res) {
   res.json({ success: true, payload: data });
 });
 
-//Not currdntly being used
+//Not currently being used
 // Deletes a resource from table
 // router.delete("/:id", async function (req, res) {
 //   let resourceId = req.params.id;
