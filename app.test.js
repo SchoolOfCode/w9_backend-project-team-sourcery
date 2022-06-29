@@ -4,31 +4,29 @@ import request from "supertest";
 
 import app from "./app.js";
 
-describe("GET /users", function () {
-  test("gives us back 200, with a message", async function () {
-    const expectedBody = {
-      message: "I wish we had some information to give you ☹️",
-    };
-    const actual = await request(app).get("/v1/resources");
-    // expect(actual.body).toStrictEqual(expectedBody);
-    expect(actual.statusCode).toBe(200);
-    pool.end();
-  });
+// GET ALL USERS ROUTE
+test("tests get all status code 200", async function () {
+  const response = await request(app).get("/v1/resources");
+  expect(response.status).toEqual(200);
 });
 
-// describe("GET /v1/resources", function () {
-//   test("gives us back 200, with correct body", async function () {
-//     // const expectedBody = {
-//     //   success: true,
-//     //   payload: [
-//     //     {
-//     //       name: "blake",
-//     //       url: "www.google.com",
-//     //       description: "this is google, have a blast looking around",
-//     //     },
-//     //   ],
-//     // };
-//     const actual = await request(app).get("/v1/resources");
-//     expect(actual.status).toBe(200);
-//   });
-// });
+test("tests get all status code 400", async function () {
+  const response = await request(app).get("/v1/resources");
+  expect(response.status).toEqual(400);
+});
+
+test("tests get all body structure", async function () {
+  const response = await request(app).get("/v1/resources");
+  expect(response.body.rows).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        id: expect.any(Number),
+        name: expect.any(String),
+        url: expect.any(String),
+        description: expect.any(String),
+        likes: expect.any(Number),
+        week: expect.any(Number),
+      }),
+    ])
+  );
+});
